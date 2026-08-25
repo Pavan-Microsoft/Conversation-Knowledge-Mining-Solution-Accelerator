@@ -1,0 +1,43 @@
+# Sample Azure Pipelines YAML for testing GitHub integration
+# Docs: https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml
+
+# Trigger a run on pushes to these branches
+trigger:
+  branches:
+    include:
+      - main
+      - dev
+
+# Trigger validation builds on pull requests targeting these branches
+pr:
+  branches:
+    include:
+      - main
+      - dev
+
+# Microsoft-hosted agent pool
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+  - checkout: self
+    displayName: 'Checkout GitHub repository'
+
+  - script: |
+      echo "Hello from Azure Pipelines!"
+      echo "Repository: $(Build.Repository.Name)"
+      echo "Branch: $(Build.SourceBranch)"
+      echo "Commit: $(Build.SourceVersion)"
+      echo "Reason: $(Build.Reason)"
+    displayName: 'Print build info'
+
+  - script: |
+      echo "Listing repository contents..."
+      ls -la
+    displayName: 'List files'
+
+  - script: echo "Build configuration is $(buildConfiguration)"
+    displayName: 'Show variable'
