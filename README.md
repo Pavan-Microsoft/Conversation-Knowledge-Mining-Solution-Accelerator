@@ -1,4 +1,4 @@
-# Conversation Knowledge Mining Solution Accelerator
+# Conversation Knowledge Mining Solution Accelerator - Azure Pipeline Testing
 
 Welcome to the *Conversation Knowledge Mining* solution accelerator, designed to help organizations derive actionable insights from large volumes of conversational data using generative AI. This accelerator provides a foundation for building AI-driven analysis systems that extract key phrases, model topics, and enable interactive natural language exploration across conversations, documents, and recordings.
 
